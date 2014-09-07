@@ -18,6 +18,7 @@
   "dependencies": {
     "nconf": ">=0.6.9",
     "express": ">=4.8.8",
+    "express-rest": ">=1.0.3",
     "ds18x20": ">=0.1.1"
   },
   "engines": {

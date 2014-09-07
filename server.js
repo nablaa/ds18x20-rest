@@ -2,8 +2,10 @@
 var fs = require("fs");
 var nconf = require("nconf");
 var express = require('express');
+var expressRest = require('express-rest');
 var sensor = require('ds18x20');
 var app = express();
+var rest = expressRest(app);
 
 var isLoaded = sensor.isDriverLoaded();
 console.log("Is sensor driver loaded: " + isLoaded);
@@ -15,37 +17,37 @@ nconf.argv()
 var sensors = nconf.get("sensors");
 var port = nconf.get("port");
 
-app.get('/temperatures', function (req, res) {
+rest.get("/temperatures", function(req, rest) {
   sensor.getAll(function (err, tempObj) {
     if (tempObj === undefined) {
       console.log(err);
-      res.status(500).send("Error: " + err);
+      rest.serviceUnavailable(err);
     } else {
       var temps = {};
       for (var name in sensors) {
         var id = sensors[name];
         temps[name] = tempObj[id];
       }
-      res.send(temps);
+      rest.ok(temps);
     }
   });
 });
 
-app.get('/temperature/:name', function (req, res) {
+rest.get("/temperature/:name", function(req, rest) {
   var name = req.params.name;
   var id = sensors[name];
 
   if (id === undefined) {
-    res.status(404).send("Sensor name " + name + " not found");
+    rest.notFound();
     return;
   }
 
   sensor.get(id, function (err, temp) {
     if (temp === undefined) {
       console.log(err);
-      res.status(500).send("Error: " + err);
+      rest.serviceUnavailable(err);
     } else {
-      res.send(temp);
+      rest.ok(temp);
     }
   });
 });
