@@ -1,19 +1,23 @@
 {
   "author": "Miika-Petteri Matikainen",
-  "name": "temperature-server",
-  "description": "HTTP server for temperature measurements",
-  "version": "0.0.1",
+  "name": "ds18x20-rest",
+  "description": "REST API for DS18x20 temperature sensors",
+  "version": "0.1.0",
   "repository": {
     "url": ""
   },
-  "main": "",
+  "main": "server.js",
   "keywords": [
-    "",
-  "case",
-  "file"
-    ],
+    "ds1820",
+    "ds18s20",
+    "ds18b20",
+    "ds18x20",
+    "sensor",
+    "temperature",
+    "rest"
+  ],
   "bin": {
-    "temperature-server": "server.js"
+    "ds18x20-rest": "server.js"
   },
   "dependencies": {
     "nconf": ">=0.6.9",
@@ -23,5 +27,10 @@
   },
   "engines": {
     "node": "*"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "license": "MIT"
 }
