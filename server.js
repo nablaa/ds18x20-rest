@@ -15,6 +15,22 @@ nconf.argv()
 var sensors = nconf.get("sensors");
 var port = nconf.get("port");
 
+app.get('/temperatures', function (req, res) {
+  sensor.getAll(function (err, tempObj) {
+    if (tempObj === undefined) {
+      console.log(err);
+      res.status(500).send("Error: " + err);
+    } else {
+      var temps = {};
+      for (var name in sensors) {
+        var id = sensors[name];
+        temps[name] = tempObj[id];
+      }
+      res.send(temps);
+    }
+  });
+});
+
 app.get('/temperature/:name', function (req, res) {
   var name = req.params.name;
   var id = sensors[name];
