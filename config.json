@@ -1,7 +1,7 @@
 {
   "sensors": {
-    "bedroom": "28-000004d5037e",
-    "outside": "28-000004d48d1d"
+    "mytemp1": "28-000004d5037e",
+    "mytemp2": "28-000004d48d1d"
   },
   "port": "8080"
 }
