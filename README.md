@@ -2,6 +2,8 @@
 
 ds18x20-rest provides REST API for DS18x20 temperature sensors.
 
+[![NPM](https://nodei.co/npm/ds18x20-rest.png?downloads=true)](https://nodei.co/npm/ds18x20-rest/)
+
 ## Installation
 
     $ npm install ds18x20-rest

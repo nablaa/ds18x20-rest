@@ -4,7 +4,7 @@
   "description": "REST API for DS18x20 temperature sensors",
   "version": "0.1.0",
   "repository": {
-    "url": ""
+    "url": "https://github.com/nablaa/ds18x20-rest"
   },
   "main": "server.js",
   "keywords": [
