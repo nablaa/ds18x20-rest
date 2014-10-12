@@ -1,5 +1,5 @@
 {
-  "author": "Miika-Petteri Matikainen",
+  "author": "Miika-Petteri Matikainen <miikapetteri@gmail.com>",
   "name": "ds18x20-rest",
   "description": "REST API for DS18x20 temperature sensors",
   "version": "0.1.0",
@@ -29,7 +29,7 @@
     "node": "*"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js config.json"
   },
   "devDependencies": {},
   "license": "MIT"
