@@ -12,9 +12,18 @@ var rest = expressRest(app);
 var isLoaded = sensor.isDriverLoaded();
 console.log("Is sensor driver loaded: " + isLoaded);
 
-nconf.argv()
- .env()
- .file({ file: "./config.json" });
+var args = process.argv.slice(2);
+var configFile = args[0];
+
+if (!fs.existsSync(configFile)) {
+  console.log("Config file does not exist: " + configFile);
+  console.log("Give proper config file as an argument");
+  process.exit(1);
+}
+
+console.log("Config file: " + configFile);
+
+nconf.file({ file: configFile });
 
 var sensors = nconf.get("sensors");
 var port = nconf.get("port");
