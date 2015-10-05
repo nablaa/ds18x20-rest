@@ -10,7 +10,9 @@ ds18x20-rest provides REST API for DS18x20 temperature sensors.
 
 ## Usage
 
-Before starting the server, a config file must be created. Below is a sample
+A config file will automatically be created for you if an existing config file is not found at the location you specified. You will be prompted for values when you first run the server. Alternatively, you may manually create a config file with the following format:
+
+ Below is a sample
 of a config file which defines two sensors: `mytemp1` and `mytemp2`:
 
 ```js
@@ -26,6 +28,8 @@ of a config file which defines two sensors: `mytemp1` and `mytemp2`:
 The server is started as follows:
 
     $ ds18x20-rest path/to/config.json
+
+*Note*: If you do not specify a path to a config file, the server will look for one at 'config.json'.
 
 ## API
 

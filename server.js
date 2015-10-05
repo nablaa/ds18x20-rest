@@ -2,7 +2,7 @@
 
 "use strict";
 
-const DEFAULT_CONFIG = "config.json"
+var DEFAULT_CONFIG = "config.json"
 
 var fs = require("fs");
 var nconf = require("nconf");
@@ -61,7 +61,7 @@ if (!fs.existsSync(configFile)) {
         };
         
         var listOfDeviceIds = sensor.list();
-        for (let i = 0; i < listOfDeviceIds.length; i++) {
+        for (var i = 0; i < listOfDeviceIds.length; i++) {
           schema.properties[listOfDeviceIds[i]] = {
             required: true,
             description: "Enter name for " + listOfDeviceIds[i]
